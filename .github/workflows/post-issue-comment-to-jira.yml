@@ -19,7 +19,7 @@ jobs:
       - name: Find JIRA ticket in the issue body
         id: find_key
         run: |
-          jira_id="$(echo "${{ github.event.issue.body }}" | grep -o -E '${{ vars.JIRA_PROJECT_KEY }}\-[0-9]+')"
+          jira_id="$(echo "${{ github.event.issue.body }}" | grep -o -E '${{ vars.JIRA_PROJECT_KEY }}\-[0-9]+')" || true
           echo "jira_id=$jira_id" >> $GITHUB_OUTPUT
 
       - name: Comment on Jira issue
