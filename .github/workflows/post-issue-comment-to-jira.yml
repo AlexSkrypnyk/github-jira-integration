@@ -13,7 +13,7 @@ jobs:
         run: echo "${{ github.event.comment.body }}" > ${{ runner.temp }}/_github_workflow/comment.md
 
       - name: Convert GitHub markdown to Jira markup
-        uses: docker://pandoc/core:3.1
+        uses: docker://pandoc/core:3.13
         with:
           args: --from gfm --to jira --output=/github/workflow/comment.jira /github/workflow/comment.md
 
